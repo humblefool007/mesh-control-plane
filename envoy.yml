@@ -37,9 +37,9 @@ rds:
   version_info: '1'
   resources:
   - "@type": type.googleapis.com/envoy.api.v2.RouteConfiguration
-    name: ingress_routes
+    name: card_routes
     virtual_hosts:
-    - name: nbx_card
+    - name: service_a
       domains:
       - "*"
       routes:
