@@ -24,14 +24,10 @@ cds:
       - lb_endpoints:
         - endpoint:
             address:
-              socket_address:
-                address: 10.152.121.103
-                port_value: 31380a
+              socket_address: giri
         - endpoint:
             address:
-              socket_address:
-                address: api.dev.stp.local
-                port_value: 80a
+              socket_address: arun
 rds:
   version_info: '1'
   resources:
