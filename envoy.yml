@@ -1,0 +1,12 @@
+eds:
+  version_info: v1
+  resources:
+  - @type: type.googleapis.com/envoy.api.v2.ClusterLoadAssignment
+    cluster_name: myservice
+    endpoints:
+    - lb_endpoints:
+      - endpoint:
+          address: 
+            socket_address:
+              address: 127.0.0.1
+              port_value: 80
