@@ -16,7 +16,7 @@ cds:
   resources:
   - apitype: type.googleapis.com/envoy.api.v2.Cluster
     name: nbx_card
-    connect_timeout: 0.40s
+    connect_timeout: 0.50s
     type: strict_dns
     lb_policy: round_robin
     load_assignment:
