@@ -12,6 +12,7 @@ eds:
               port_value: 80
 cds:
   version_info: '2'
+  test: asd
   resources:
     "@type": type.googleapis.com/envoy.api.v2.Cluster
     name: nbx_card
