@@ -39,7 +39,7 @@ rds:
   - "@type": type.googleapis.com/envoy.api.v2.RouteConfiguration
     name: card_routes
     virtual_hosts:
-    - name: service_a
+    - name: nbx_card
       domains:
       - "*"
       routes:
