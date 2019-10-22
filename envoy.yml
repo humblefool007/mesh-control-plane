@@ -13,7 +13,7 @@ eds:
 cds:
   version_info: '2'
   resources:
-  - "@type": type.googleapis.com/envoy.api.v2.Cluster
+  - apitype: type.googleapis.com/envoy.api.v2.Cluster
     name: nbx_card
     connect_timeout: 0.25s
     type: strict_dns
