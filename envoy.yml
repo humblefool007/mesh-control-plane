@@ -44,6 +44,6 @@ rds:
       - "*"
       routes:
       - match:
-          prefix: "/"
+          prefix: "/cardpayments"
         route:
           cluster: nbx_card
