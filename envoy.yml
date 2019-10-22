@@ -1,7 +1,7 @@
 eds:
   version_info: v1
   resources:
-  - @type: type.googleapis.com/envoy.api.v2.ClusterLoadAssignment
+  - type: type.googleapis.com/envoy.api.v2.ClusterLoadAssignment
     cluster_name: myservice
     endpoints:
     - lb_endpoints:
