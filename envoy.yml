@@ -21,14 +21,7 @@ cds:
     load_assignment:
       cluster_name: nbx_card
       endpoints:
-      - lb_endpoints:
-        - endpoint:
-            address:
-              socket_address: asd
-                
-        - endpoint:
-            address:
-              socket_address: asd
+        lb_endpoints: asd
              
 rds:
   version_info: '1'
