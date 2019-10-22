@@ -26,12 +26,12 @@ cds:
             address:
               socket_address:
                 address: 10.152.121.103
-                port_value: 31380
+                port_value: 31380a
         - endpoint:
             address:
               socket_address:
                 address: api.dev.stp.local
-                port_value: 80
+                port_value: 80a
 rds:
   version_info: '1'
   resources:
