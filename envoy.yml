@@ -24,14 +24,12 @@ cds:
       - lb_endpoints:
         - endpoint:
             address:
-              socket_address:
-                address: 10.152.121.103
-                port_value: 31380
+              socket_address: asd
+                
         - endpoint:
             address:
-              socket_address:
-                address: api.dev.stp.local
-                port_value: 80
+              socket_address: asd
+             
 rds:
   version_info: '1'
   resources:
