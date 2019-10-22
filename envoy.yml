@@ -21,8 +21,17 @@ cds:
     load_assignment:
       cluster_name: nbx_card
       endpoints:
-      - lb_endpoints: arun
-       
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: 10.152.121.103
+                port_value: 31380
+        - endpoint:
+            address:
+              socket_address:
+                address: api.dev.stp.local
+                port_value: 80
 rds:
   version_info: '1'
   resources:
