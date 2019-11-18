@@ -21,6 +21,7 @@ cds:
     lb_policy: round_robin
     load_assignment:
       cluster_name: nbx_card
+      eds_eureka: true
       endpoints:
       - lb_endpoints:
         - endpoint:
