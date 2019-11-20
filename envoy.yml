@@ -12,7 +12,7 @@ eds:
               port_value: 80
 cds:
   version_info: '2'
-  name: nbx_card
+  name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
   resources:
   - apitype: type.googleapis.com/envoy.api.v2.Cluster
     name: nbx_card
@@ -20,7 +20,7 @@ cds:
     type: strict_dns
     lb_policy: round_robin
     load_assignment:
-      cluster_name: nbx_card
+      cluster_name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
       eds_eureka: true
       endpoints:
       - lb_endpoints:
