@@ -15,7 +15,7 @@ cds:
   name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
   resources:
   - apitype: type.googleapis.com/envoy.api.v2.Cluster
-    name: nbx_card
+    name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
     connect_timeout: 0.50s
     type: strict_dns
     lb_policy: round_robin
