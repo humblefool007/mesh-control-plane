@@ -12,7 +12,6 @@ eds:
               port_value: 80
 cds:
   version_info: '2'
-  name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
   resources:
   - apitype: type.googleapis.com/envoy.api.v2.Cluster
     name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
@@ -38,13 +37,13 @@ rds:
   version_info: '1'
   resources:
   - apitype: type.googleapis.com/envoy.api.v2.RouteConfiguration
-    name: card_routes
+    name: bvd_routes
     virtual_hosts:
-    - name: nbx_card
+    - name: bvd
       domains:
-      - "*"
+      - "PAYSAFE-BSS-TPDB-IDENTITY-BVD"
       routes:
       - match:
-          prefix: "/cardpayments"
+          prefix: "/bvd"
         route:
-          cluster: nbx_card
+          cluster: PAYSAFE-BSS-TPDB-IDENTITY-BVD
