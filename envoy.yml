@@ -41,7 +41,7 @@ rds:
     virtual_hosts:
     - name: bvd
       domains:
-      - "PAYSAFE-BSS-TPDB-IDENTITY-BVD"
+      - "*"
       routes:
       - match:
           prefix: "/bvd"
