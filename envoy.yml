@@ -1,38 +1,49 @@
-eds:
-  version_info: v1
-  resources:
-  - type: type.googleapis.com/envoy.api.v2.ClusterLoadAssignment
-    cluster_name: myservice
-    endpoints:
-    - lb_endpoints:
-      - endpoint:
-          address: 
-            socket_address:
-              address: 127.0.0.1
-              port_value: 80
 cds:
   version_info: '2'
   resources:
   - apitype: type.googleapis.com/envoy.api.v2.Cluster
     name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
     connect_timeout: 0.50s
-    type: strict_dns
+    type: ORIGINAL_DST
     lb_policy: round_robin
     load_assignment:
       cluster_name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
-      eds_eureka: true
+      endpoints: 
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: 10.152.64.104
+                port_value: 1234
+        - endpoint:
+            address:
+              socket_address:
+                address: enfa29fv1ltf7.x.pipedream.net
+                port_value: 80          
+    health_checks:
+    - timeout: 5s
+      interval: 10s
+      unhealthy_threshold: 2
+      healthy_threshold: 1
+      http_health_check:
+        path: /admin/manage
+        expected_status: 200
+        
+  - apitype: type.googleapis.com/envoy.api.v2.Cluster
+    name: SHADOW-PAYSAFE-BSS-TPDB-IDENTITY-BVD
+    connect_timeout: 0.50s
+    type: ORIGINAL_DST
+    lb_policy: round_robin
+    load_assignment:
+      cluster_name: SHADOW-PAYSAFE-BSS-TPDB-IDENTITY-BVD
       endpoints:
       - lb_endpoints:
         - endpoint:
             address:
               socket_address:
-                address: 10.152.121.103
-                port_value: 31380
-        - endpoint:
-            address:
-              socket_address:
-                address: api.dev.stp.local
+                address: aa6eaecc9146511ea89760666012229b-1163180322.ca-central-1.elb.amazonaws.com
                 port_value: 80
+       
 rds:
   version_info: '1'
   resources:
@@ -44,6 +55,12 @@ rds:
       - "*"
       routes:
       - match:
-          prefix: "/bvd"
+          prefix: "/idverification"
         route:
           cluster: PAYSAFE-BSS-TPDB-IDENTITY-BVD
+          request_mirror_policy:
+            cluster: SHADOW-PAYSAFE-BSS-TPDB-IDENTITY-BVD
+      - match:
+          prefix: "/test"
+        route:
+          cluster: ONEPLATFORM-CLOUD-CONFIG
