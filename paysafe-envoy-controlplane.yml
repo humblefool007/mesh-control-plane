@@ -4,7 +4,7 @@ cds:
   - apitype: type.googleapis.com/envoy.api.v2.Cluster
     name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
     connect_timeout: 0.50s
-    type: static
+    type: strict_dns
     lb_policy: round_robin
     load_assignment:
       cluster_name: PAYSAFE-BSS-TPDB-IDENTITY-BVD
@@ -32,7 +32,7 @@ cds:
   - apitype: type.googleapis.com/envoy.api.v2.Cluster
     name: SHADOW-PAYSAFE-BSS-TPDB-IDENTITY-BVD
     connect_timeout: 0.50s
-    type: static
+    type: strict_dns
     lb_policy: round_robin
     load_assignment:
       cluster_name: SHADOW-PAYSAFE-BSS-TPDB-IDENTITY-BVD
@@ -60,7 +60,3 @@ rds:
           cluster: PAYSAFE-BSS-TPDB-IDENTITY-BVD
           request_mirror_policy:
             cluster: SHADOW-PAYSAFE-BSS-TPDB-IDENTITY-BVD
-      - match:
-          prefix: "/test"
-        route:
-          cluster: ONEPLATFORM-CLOUD-CONFIG
